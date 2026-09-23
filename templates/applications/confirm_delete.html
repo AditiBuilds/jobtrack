@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Application — JobTrack{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center py-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-header bg-danger text-white text-center py-4 border-0">
+                <i class="bi bi-exclamation-triangle-fill fs-1 mb-2 d-block"></i>
+                <h4 class="fw-bold mb-0">Confirm Deletion</h4>
+                <p class="small text-white-50 mb-0">This action cannot be undone</p>
+            </div>
+            
+            <div class="card-body p-4 p-md-5 text-center">
+                <p class="text-secondary mb-3">Are you sure you want to permanently delete the job application for:</p>
+                
+                <div class="p-3 bg-light rounded-3 border mb-4">
+                    <h5 class="fw-bold text-dark mb-1">{{ application.position }}</h5>
+                    <p class="text-primary fw-semibold mb-0">{{ application.company }}</p>
+                    <small class="text-muted"><i class="bi bi-geo-alt"></i> {{ application.location|default:"No location" }}</small>
+                </div>
+
+                <form method="post" action="{% url 'application_delete' application.pk %}">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{% url 'application_detail' application.pk %}" class="btn btn-outline-secondary rounded-pill px-4">
+                            Cancel
+                        </a>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4 shadow-sm fw-semibold">
+                            <i class="bi bi-trash-fill me-1"></i> Yes, Delete Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

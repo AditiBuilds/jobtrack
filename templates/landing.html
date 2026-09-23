@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}JobTrack — Track every application. Land your next opportunity.{% endblock %}
+
+{% block content %}
+<div class="row align-items-center py-5 my-3">
+    <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+        <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill mb-3">
+            <i class="bi bi-stars me-1"></i> Job Search Command Center
+        </span>
+        <h1 class="display-4 fw-extrabold text-dark tracking-tight lh-sm mb-3">
+            Track every application. <br>
+            <span class="text-gradient">Land your next opportunity.</span>
+        </h1>
+        <p class="lead text-secondary mb-4">
+            JobTrack helps you organize job applications, interviews, salaries, contacts, and your entire job hunt in one powerful, unified dashboard.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg rounded-pill px-4 shadow">
+                Get Started Free <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a href="{% url 'login' %}" class="btn btn-outline-dark btn-lg rounded-pill px-4">
+                Log In
+            </a>
+        </div>
+
+        <!-- Quick Demo Credentials Box -->
+        <div class="card border-primary-subtle bg-primary-subtle bg-opacity-10 rounded-3 p-3 mt-4">
+            <div class="d-flex align-items-center">
+                <i class="bi bi-rocket-takeoff-fill text-primary fs-3 me-3"></i>
+                <div>
+                    <h6 class="fw-bold mb-1 text-dark">Instant Live Demo Credentials</h6>
+                    <p class="mb-0 small text-secondary">
+                        Username: <code class="bg-white px-2 py-1 rounded border text-primary fw-bold">demo</code> &nbsp;|&nbsp; 
+                        Password: <code class="bg-white px-2 py-1 rounded border text-primary fw-bold">DemoPassword123!</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden hero-card">
+            <div class="card-header bg-dark text-white d-flex align-items-center justify-content-between px-4 py-3">
+                <div class="d-flex gap-2">
+                    <span class="rounded-circle bg-danger d-inline-block" style="width: 12px; height: 12px;"></span>
+                    <span class="rounded-circle bg-warning d-inline-block" style="width: 12px; height: 12px;"></span>
+                    <span class="rounded-circle bg-success d-inline-block" style="width: 12px; height: 12px;"></span>
+                </div>
+                <small class="text-white-50 font-monospace">jobtrack.app/dashboard</small>
+            </div>
+            <div class="card-body p-4 bg-white">
+                <div class="row g-3 mb-3">
+                    <div class="col-6">
+                        <div class="p-3 bg-light rounded-3 border text-center">
+                            <h3 class="fw-bold text-primary mb-0">18</h3>
+                            <small class="text-muted text-uppercase fw-semibold">Active Applications</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 bg-light rounded-3 border text-center">
+                            <h3 class="fw-bold text-success mb-0">4</h3>
+                            <small class="text-muted text-uppercase fw-semibold">Interviews Scheduled</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border rounded-3 p-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold">Google — Software Engineer</span>
+                        <span class="badge bg-success rounded-pill px-3">Offer</span>
+                    </div>
+                    <div class="small text-muted mb-1"><i class="bi bi-geo-alt me-1"></i> Bengaluru &bull; ₹32,00,000</div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="border rounded-3 p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold">Microsoft — SDE II</span>
+                        <span class="badge bg-warning text-dark rounded-pill px-3">Interview</span>
+                    </div>
+                    <div class="small text-muted mb-1"><i class="bi bi-geo-alt me-1"></i> Hyderabad &bull; ₹28,00,000</div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row g-4 py-5 my-3 border-top">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center">
+            <div class="icon-box bg-primary-subtle text-primary rounded-circle mx-auto mb-3" style="width: 60px; height: 60px; line-height: 60px;">
+                <i class="bi bi-kanban fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Full Stage Tracking</h5>
+            <p class="text-secondary small mb-0">Track applications through Saved, Applied, Assessment, Interview, Offer, and Rejected stages.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center">
+            <div class="icon-box bg-success-subtle text-success rounded-circle mx-auto mb-3" style="width: 60px; height: 60px; line-height: 60px;">
+                <i class="bi bi-graph-up-arrow fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Analytics & Metrics</h5>
+            <p class="text-secondary small mb-0">Visualize your application conversion rate and pipeline health with Chart.js integration.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center">
+            <div class="icon-box bg-info-subtle text-info rounded-circle mx-auto mb-3" style="width: 60px; height: 60px; line-height: 60px;">
+                <i class="bi bi-shield-lock-fill fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Isolated & Secure API</h5>
+            <p class="text-secondary small mb-0">Full REST API with complete per-user isolation ensuring your data remains strictly private.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

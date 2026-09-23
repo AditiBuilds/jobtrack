@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} — JobTrack{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+            <div class="card-header bg-primary text-white p-4 border-0">
+                <h3 class="fw-bold mb-1"><i class="bi {% if is_edit %}bi-pencil-square{% else %}bi-plus-circle{% endif %} me-2"></i> {{ title }}</h3>
+                <p class="small text-white-50 mb-0">Fill in the job details below to keep your application pipeline updated.</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    <div class="row g-3">
+                        <!-- Company -->
+                        <div class="col-md-6">
+                            <label for="{{ form.company.id_for_label }}" class="form-label fw-semibold">
+                                Company Name <span class="text-danger">*</span>
+                            </label>
+                            {{ form.company }}
+                            {% for error in form.company.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Position -->
+                        <div class="col-md-6">
+                            <label for="{{ form.position.id_for_label }}" class="form-label fw-semibold">
+                                Job Position / Title <span class="text-danger">*</span>
+                            </label>
+                            {{ form.position }}
+                            {% for error in form.position.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Location -->
+                        <div class="col-md-6">
+                            <label for="{{ form.location.id_for_label }}" class="form-label fw-semibold">Location</label>
+                            {{ form.location }}
+                        </div>
+
+                        <!-- Employment Type -->
+                        <div class="col-md-6">
+                            <label for="{{ form.employment_type.id_for_label }}" class="form-label fw-semibold">Employment Type</label>
+                            {{ form.employment_type }}
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-6">
+                            <label for="{{ form.status.id_for_label }}" class="form-label fw-semibold">Application Status</label>
+                            {{ form.status }}
+                        </div>
+
+                        <!-- Priority -->
+                        <div class="col-md-6">
+                            <label for="{{ form.priority.id_for_label }}" class="form-label fw-semibold">Priority Level</label>
+                            {{ form.priority }}
+                        </div>
+
+                        <!-- Date Applied -->
+                        <div class="col-md-6">
+                            <label for="{{ form.date_applied.id_for_label }}" class="form-label fw-semibold">Date Applied</label>
+                            {{ form.date_applied }}
+                        </div>
+
+                        <!-- Interview Date -->
+                        <div class="col-md-6">
+                            <label for="{{ form.interview_date.id_for_label }}" class="form-label fw-semibold">Interview Date & Time</label>
+                            {{ form.interview_date }}
+                        </div>
+
+                        <!-- Salary -->
+                        <div class="col-md-6">
+                            <label for="{{ form.salary.id_for_label }}" class="form-label fw-semibold">Offered / Target Salary (₹)</label>
+                            {{ form.salary }}
+                        </div>
+
+                        <!-- Source -->
+                        <div class="col-md-6">
+                            <label for="{{ form.source.id_for_label }}" class="form-label fw-semibold">Source / Referral</label>
+                            {{ form.source }}
+                        </div>
+
+                        <!-- Job URL -->
+                        <div class="col-12">
+                            <label for="{{ form.job_url.id_for_label }}" class="form-label fw-semibold">Job Listing URL</label>
+                            {{ form.job_url }}
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="col-12">
+                            <label for="{{ form.notes.id_for_label }}" class="form-label fw-semibold">Notes & Context</label>
+                            {{ form.notes }}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-3 mt-4 pt-3 border-top">
+                        <a href="{% if is_edit %}{% url 'application_detail' application.pk %}{% else %}{% url 'application_list' %}{% endif %}" class="btn btn-outline-secondary rounded-pill px-4">
+                            Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 shadow-sm fw-semibold">
+                            <i class="bi bi-check-lg me-1"></i> Save Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
