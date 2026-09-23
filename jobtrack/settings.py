@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jobtrack.wsgi'
+WSGI_APPLICATION = 'jobtrack.wsgi.application'
 
 
 # Database
