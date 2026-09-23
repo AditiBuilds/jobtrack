@@ -1,12 +1,47 @@
+# Virtual Environments
 venv/
 .venv/
-*.pyc
+env/
+ENV/
+
+# Python & Cache Files
 __pycache__/
-instance/
+*.pyc
+*.pyo
+*.pyd
 .pytest_cache/
-.env
+*.egg-info/
+dist/
+build/
+
+# Database Files (SQLite)
 db.sqlite3
 db.sqlite3-journal
+*.sqlite3
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Django Generated Files
 staticfiles/
 media/
-.DS_Store
+instance/
