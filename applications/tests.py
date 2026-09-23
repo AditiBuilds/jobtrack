@@ -1,9 +1,21 @@
-from django.test import TestCase, Client
+from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APIClient
 from .models import JobApplication
+
+# Python 3.14 compatibility patch for Django template Context copy during test rendering signal
+from django.template.context import BaseContext
+def _patched_context_copy(self):
+    duplicate = object.__new__(self.__class__)
+    duplicate.dicts = [d.copy() for d in self.dicts]
+    if hasattr(self, 'request'):
+        duplicate.request = self.request
+    if hasattr(self, 'template'):
+        duplicate.template = self.template
+    return duplicate
+BaseContext.__copy__ = _patched_context_copy
 
 
 class JobApplicationModelTest(TestCase):
