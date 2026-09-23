@@ -46,7 +46,7 @@ graph TD
 ## 🗄️ Database Schema
 
 ```mermaid
-erdiagram
+erDiagram
     USER ||--o{ JOB_APPLICATION : owns
     USER {
         int id PK
@@ -92,8 +92,8 @@ Ensure you have **Python 3.10+** installed on your system.
 
 ### 2. Clone Repository & Setup Virtual Environment
 ```bash
-git clone https://github.com/your-username/JobTrack.git
-cd JobTrack
+git clone https://github.com/AditiBuilds/jobtrack.git
+cd jobtrack
 
 # Create virtual environment
 python -m venv venv
@@ -218,13 +218,12 @@ python manage.py test applications
 ## 📂 Project Structure
 
 ```
-JobTrack/
+jobtrack/
 ├── manage.py
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
 ├── .env.example
-├── .env
 │
 ├── jobtrack/
 │   ├── __init__.py
@@ -267,6 +266,8 @@ JobTrack/
     └── js/
         └── main.js
 ```
+
+*(Note: `.env` is intentionally excluded from Git for security and must be created locally by copying `.env.example`).*
 
 ---
 
